@@ -11,7 +11,7 @@ app.use(routes);
 const port = process.env.PORT;
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({ server: 'Express + TypeScript Server' });
+  res.json({ server: 'Abyscuit API Made with Express + TypeScript Server' });
 });
 
 app.listen(port, () => {
