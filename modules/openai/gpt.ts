@@ -68,6 +68,6 @@ export async function gptPrompt(
     }
   ).then(data => data.json());
 
-  console.log('response', response);
+  console.log('response:\n', response);
   return response;
 }
