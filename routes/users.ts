@@ -10,7 +10,6 @@ router.use((req, res, next) => {
 // define the home page route
 router.get('/', (req, res) => {
   getUsers((users: User[]) => {
-    console.log('users:\n', users);
     res.send(`All Users: <br />
     ${JSON.stringify(users)}`);
   });
@@ -19,7 +18,6 @@ router.get('/', (req, res) => {
 router.get('/:discordID', (req, res) => {
   const discordID = req.params.discordID;
   getUserByDiscordID(discordID, (user: User) => {
-    console.log('user:\n', user);
     res.send(`${discordID}'s User Info <br />
     ${JSON.stringify(user)}`);
   });

@@ -35,8 +35,7 @@ export function runQuery(query: string, callback: Function) {
     if (err) {
       throw err;
     }
-    // console.log('results:\n', results);
-    return callback(results); // results contains rows returned by server
+    return callback(results);
   });
 }
 export function runQueryValues(
@@ -48,7 +47,7 @@ export function runQueryValues(
     if (err) {
       throw err;
     }
-    return callback(results); // results contains rows returned by server
+    return callback(results);
   });
   return results;
 }

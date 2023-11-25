@@ -29,7 +29,6 @@ export function getUsers(callback: Function) {
 export function getUserByDiscordID(id: string, callback: Function) {
   const query = `select * from users where discordID = ${id};`;
   runQuery(query, (user: User) => {
-    console.log('user:\n', user);
     return callback(user);
   });
 }
