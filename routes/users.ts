@@ -1,9 +1,5 @@
 import express from 'express';
-import {
-  User,
-  getUserByDiscordID,
-  getUsers,
-} from '../handler/users/usersHandler';
+import { User, getUserByDiscordID, getUsers } from '../handler/usersHandler';
 const router = express.Router();
 
 // middleware that is specific to this router

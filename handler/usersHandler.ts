@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { runQuery } from '../mysqlHandler';
+import { runQuery } from './mysqlHandler';
 
 export type User = {
   id: number;
