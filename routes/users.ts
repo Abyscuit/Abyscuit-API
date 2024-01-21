@@ -10,16 +10,14 @@ router.use((req, res, next) => {
 // define the home page route
 router.get('/', (req, res) => {
   getUsers((users: User[]) => {
-    res.send(`All Users: <br />
-    ${JSON.stringify(users)}`);
+    res.json(users);
   });
 });
 // define the about route
 router.get('/:discordID', (req, res) => {
   const discordID = req.params.discordID;
   getUserByDiscordID(discordID, (user: User) => {
-    res.send(`${discordID}'s User Info <br />
-    ${JSON.stringify(user)}`);
+    res.json(user);
   });
 });
 
