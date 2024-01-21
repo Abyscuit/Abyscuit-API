@@ -30,20 +30,12 @@ export function showTables() {
 //   });
 // }
 
-export function runQuery(query: string, callback: Function) {
-  connection.query(query, (err, results) => {
-    if (err) {
-      throw err;
-    }
-    return callback(results);
-  });
-}
-export function runQueryValues(
+export function runQuery(
   query: string,
-  values: unknown,
+  values: [string] | undefined,
   callback: Function
 ) {
-  const results = connection.query(query, [values], (err, results) => {
+  const results = connection.query(query, values, (err, results) => {
     if (err) {
       throw err;
     }
