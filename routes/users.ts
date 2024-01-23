@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 // define the about route
 router.get('/:discordID', (req, res) => {
-  const discordID = req.params.discordID;
+  const { discordID } = req.params;
   getUserByDiscordID(discordID, (user: User) => {
     res.json(user);
   });
