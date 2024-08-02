@@ -10,7 +10,7 @@ export type User = {
   isUnlimited: boolean;
 };
 
-export let userAccounts = [] as User[];
+export const userAccounts = [] as User[];
 
 export function addUnlimitedCredits(discordID: string) {
   const query = `UPDATE users set isUnlimited = 1 where discordID = ?;`;
@@ -22,7 +22,11 @@ export function removeUnlimitedCredits(discordID: string) {
 }
 export function getUsers(callback: Function) {
   runQuery('select * from users;', undefined, (users: User[]) => {
-    userAccounts = users;
+    userAccounts.splice(0, userAccounts.length);
+    users.map(user => {
+      userAccounts.push(user);
+      return user;
+    });
     return callback(users);
   });
 }
