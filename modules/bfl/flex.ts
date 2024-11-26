@@ -28,19 +28,23 @@ export async function generateImage(prompt: string): Promise<Flex.Response> {
 
   console.log('response:\n', response);
 
+  let count = 0;
+  const timeout = 30;
   let imgResponse = null;
   while (imgResponse === null) {
     await sleep(500);
     imgResponse = await getImageFromAPI(response.id);
     console.log('imgResponse:\n', imgResponse);
+    count++;
+    if (count === timeout) break;
   }
 
-  return imgResponse;
+  // add error
+  return imgResponse || ({} as Flex.Error);
 }
 
-async function getImageFromAPI(
-  id: string
-): Promise<Flex.GetResponse | Flex.Error | null> {
+async function getImageFromAPI(id: string): Promise<Flex.Response | null> {
+  // catch error here
   const res: Flex.GetResponse = await fetch(`${GET_RESULT}${id}`).then(data =>
     data.json()
   );
