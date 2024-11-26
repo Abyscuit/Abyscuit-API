@@ -5,7 +5,7 @@ export interface PostResponse {
 export interface GetResponse {
   id: string;
   status: string;
-  result: object | null;
+  result?: object;
 }
 
 export interface Error {
@@ -23,10 +23,10 @@ export type Response = PostResponse | GetResponse | Error;
 
 export type ProPrompt = {
   prompt: string;
-  width: number | null;
-  height: number | null;
-  prompt_upsampling: boolean | null;
-  seed: number | null;
-  safety_tolerance: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  output_format: string;
+  width?: number;
+  height?: number;
+  prompt_upsampling?: boolean;
+  seed?: number;
+  safety_tolerance?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  output_format?: string;
 };
