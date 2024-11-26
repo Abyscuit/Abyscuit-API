@@ -10,7 +10,7 @@ export async function generateImage(prompt: string): Promise<Flex.Response> {
     width: 1024,
     height: 768,
     prompt_upsampling: false,
-    seed: null,
+    // seed: null,
     safety_tolerance: 6,
     output_format: 'jpeg',
   };
